@@ -58,6 +58,7 @@ def main():
                         for element in techs.keys():
                             if techs[element][1]==name:
                                 print(element,techs[element])
+                                print(100)
                     else:
                         print("Нет такого офиса")
                 elif choose == 8:
