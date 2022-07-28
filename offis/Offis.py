@@ -151,20 +151,16 @@ def main():
                     else:
                         print("Нет такого офиса")
                 elif choose == 3:   #  УДАЛЕНИЕ СТРОКИ
-                    try:
-                        offis = input("Введите офис: ")
-                        # Поиск строки по офису в заполненных строках
-                        for row in range(3, sheet.max_row + 1):
-                            if sheet[row][2].value != None:
-                                if str(sheet['D'][row].value) == offis:
-                        # Удаление найденной строки
-                                    sheet['D'][row].value = "None"
-                                    techs.save('D:\Python\Accounting.xlsx')
-                                    break
-                    except AttributeError:
-                        print("Ничего страшного")
-                    else:
-                        print("Нет такого офиса")
+                    offis = input("Введите офис: ")
+                    # Поиск строки по офису в заполненных строках
+                    for row in range(3, sheet.max_row + 1):
+                        if sheet[row][2].value != None:
+                            if str(sheet['D'][row].value) == offis:
+                    # Удаление найденной строки
+                                sheet.delete_rows(idx=row, amount=1)
+                                techs.save('D:\Python\Accounting.xlsx')
+                            else:
+                                print("Нет такого офиса")
                 elif choose == 4:
                     for row in range(3, sheet.max_row + 1):
                         if sheet[row][3].value != None:
